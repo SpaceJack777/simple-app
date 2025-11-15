@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('website');
             $table->string('date_of_birth');
             $table->string('date_range');
-            $table->number('personal_number')->unique();
+            $table->unsignedBigInteger('personal_number')->unique();
             $table->boolean('is_citizen');
             // radio
             // select
