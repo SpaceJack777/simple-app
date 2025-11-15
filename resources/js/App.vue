@@ -1,6 +1,6 @@
-<script>
+<script setup>
 </script>
 
 <template>
-  Hello
+  <slot />
 </template>

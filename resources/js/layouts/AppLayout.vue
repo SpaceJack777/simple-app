@@ -1,7 +1,8 @@
-<script>
-console.log('app layout')
+<script setup>
 </script>
 
 <template>
-  app layout
+  <div class="bg-red">
+    <slot />
+  </div>
 </template>
