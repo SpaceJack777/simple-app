@@ -1,19 +1,16 @@
 <?php
 
-use Inertia\Inertia;
+use App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SimpleFormController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome');
-})->name('home');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
-Route::get('dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard.index');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-
-Route::get('simple-form', [SimpleFormController::class, 'index'])->name('simple.form.index');
-
-require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

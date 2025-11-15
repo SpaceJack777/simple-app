@@ -1,47 +1,16 @@
-<script setup lang="ts">
-import AppLayout from '@/layouts/AppLayout.vue';
-import { type BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/vue3';
-import PlaceholderPattern from '../components/PlaceholderPattern.vue';
-import { route } from 'ziggy-js'
+<script>
+import AdminLayout from '../Layouts/AdminLayout.vue'
 
-const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Dashboard',
-        href: route('dashboard.index'),
-    },
-];
+export default {
+  layout: AdminLayout, // 👈 tells Inertia to use AdminLayout for this page
+  props: {
+    title: String,
+  },
+}
 </script>
-
 <template>
-    <Head title="Dashboard" />
-
-    <AppLayout :breadcrumbs="breadcrumbs">
-        <div
-            class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4"
-        >
-            <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-                <div
-                    class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
-                >
-                    <PlaceholderPattern />
-                </div>
-                <div
-                    class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
-                >
-                    <PlaceholderPattern />
-                </div>
-                <div
-                    class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
-                >
-                    <PlaceholderPattern />
-                </div>
-            </div>
-            <div
-                class="relative min-h-[100vh] flex-1 rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border"
-            >
-                <PlaceholderPattern />
-            </div>
-        </div>
-    </AppLayout>
+  <AdminLayout>
+    Dashboard
+    123
+  </AdminLayout>
 </template>
